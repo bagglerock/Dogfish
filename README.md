@@ -1,1 +1,3 @@
 # Dogfish
+
+Hangman was originally developed for my bootcamp course a few years ago using HTML, CSS and basic javascript. This will be a rewrite using React... More to come later...
