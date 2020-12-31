@@ -1,0 +1,25 @@
+{
+  "name": "dogfish-backend",
+  "version": "1.0.0",
+  "main": "dist/src/server.js",
+  "license": "MIT",
+  "dependencies": {
+    "@types/express": "^4.17.9",
+    "@types/node": "^14.14.14",
+    "concurrently": "^5.3.0",
+    "express": "^4.17.1",
+    "if-env": "^1.0.4",
+    "nodemon": "^2.0.6",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.1.3"
+  },
+  "scripts": {
+    "start": "if-env NODE_ENV=production && npm run start:prod || yarn start:dev",
+    "start:prod": "node dist/server.js",
+    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"yarn client\"",
+    "client": "cd ../frontend && yarn start",
+    "install": "cd ../frontend && yarn install",
+    "build": "cd ../frontend && yarn build && cd ../backend && yarn tsc",
+    "test": "cd ../frontend && yarn react-scripts test"
+  }
+}
