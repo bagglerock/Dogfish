@@ -5,7 +5,7 @@ export const Footer: React.FC = () => {
   const year = date.getFullYear();
 
   return (
-    <footer className="footer">
+    <footer className="footer pt-3">
       <h1>&copy; Oscar Villalta {year}</h1>
     </footer>
   );
