@@ -16,7 +16,7 @@
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || yarn start:dev",
     "start:prod": "node dist/server.js",
-    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"yarn client\"",
+    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"yarn tsc --watch\" \"yarn client\"",
     "client": "cd ../frontend && yarn start",
     "install": "cd ../frontend && yarn install",
     "build": "cd ../frontend && yarn build && cd ../backend && yarn tsc",
