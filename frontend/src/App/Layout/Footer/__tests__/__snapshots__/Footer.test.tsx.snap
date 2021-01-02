@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders App/Layout 1`] = `
+<div>
+  <footer
+    class="footer pt-3"
+  >
+    <h1>
+      © 
+      1999
+       Oscar Villalta
+    </h1>
+  </footer>
+</div>
+`;

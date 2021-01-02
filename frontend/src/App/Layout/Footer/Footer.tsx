@@ -1,12 +1,12 @@
 import React from 'react';
 
 export const Footer: React.FC = () => {
-  const date = new Date();
+  const date = new Date(Date.now());
   const year = date.getFullYear();
 
   return (
     <footer className="footer pt-3">
-      <h1>&copy; Oscar Villalta {year}</h1>
+      <h1>&copy; {year} Oscar Villalta</h1>
     </footer>
   );
 };
