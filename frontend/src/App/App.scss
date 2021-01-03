@@ -13,8 +13,7 @@ h1,
 h2,
 h3,
 h4,
-h5,
-p {
+h5 {
   color: darkolivegreen;
   font-family: 'Press Start 2P', cursive;
 }
@@ -22,3 +21,4 @@ p {
 @import './Layout/Header/header.scss';
 @import './Layout/Main/main.scss';
 @import './Layout/Footer/footer.scss';
+@import './Game/game.scss';
