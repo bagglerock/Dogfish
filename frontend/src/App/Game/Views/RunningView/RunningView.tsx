@@ -1,14 +1,14 @@
 import { GameStats } from 'app/Game/models/GameStats';
-import { GameStatistics } from 'app/Game/Running/Sections/GameStatistics/GameStatistics';
-import { LettersGuessed } from 'app/Game/Running/Sections/LettersGuessed/LettersGuessed';
-import { StatusMessages } from 'app/Game/Running/Sections/StatusMessages/StatusMessages';
-import { WordDisplay } from 'app/Game/Running/Sections/WordDisplay/WordDisplay';
+import { GameStatistics } from 'app/Game/Views/RunningView/Sections/GameStatistics/GameStatistics';
+import { LettersGuessed } from 'app/Game/Views/RunningView/Sections/LettersGuessed/LettersGuessed';
+import { StatusMessages } from 'app/Game/Views/RunningView/Sections/StatusMessages/StatusMessages';
+import { WordDisplay } from 'app/Game/Views/RunningView/Sections/WordDisplay/WordDisplay';
 import { convertWordToHiddenArray } from 'app/Game/utilities/convertWordToHiddenArray';
 import React from 'react';
 
 export const RunningView: React.FC = () => {
   const word = 'HELLO WORLD';
-  const lettersGuessed = ['A', 'B', 'C', 'D', 'E'];
+  const lettersGuessed = ['A', 'B', 'C', 'D', 'E', 'O'];
   const statusMessage = 'This is a test message';
   const gameStats = new GameStats({
     wins: '10',
