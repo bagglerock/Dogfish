@@ -1,4 +1,5 @@
-import { WordDisplay } from 'app/Game/Sections/WordDisplay/WordDisplay';
+import { LettersGuessed } from 'app/Game/Running/Sections/LettersGuessed/LettersGuessed';
+import { WordDisplay } from 'app/Game/Running/Sections/WordDisplay/WordDisplay';
 import { convertWordToHiddenArray } from 'app/Game/utilities/convertWordToHiddenArray';
 import { Card } from 'app/share/Card';
 import React from 'react';
@@ -11,13 +12,9 @@ export const RunningView: React.FC = () => {
 
   return (
     <>
-      <Card>
-        <WordDisplay hiddenWord={maskedWord} />
-      </Card>
+      <WordDisplay hiddenWord={maskedWord} />
 
-      <Card>
-        <p className="p-style-1">Letters Guessed</p>
-      </Card>
+      <LettersGuessed lettersGuessed={lettersGuessed} />
 
       <Card>
         <p className="p-style-1">Status</p>
