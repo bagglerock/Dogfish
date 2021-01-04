@@ -6,16 +6,19 @@ import { WordDisplay } from 'app/Game/Views/RunningView/Sections/WordDisplay/Wor
 import { useWord } from 'app/Game/Views/RunningView/useWord';
 import React from 'react';
 
+const MAX_GUESSES = 10;
+
 export const RunningView: React.FC = () => {
   const word = 'HELLO WORLD';
+  const { maskedWord, lettersGuessed } = useWord(word);
+
+  const remainingGuesses = MAX_GUESSES - lettersGuessed.length;
+
   const statusMessage = 'This is a test message';
   const gameStats = new GameStats({
     wins: '10',
     losses: '2',
-    remainingGuesses: '9',
   });
-
-  const { maskedWord, lettersGuessed } = useWord(word);
 
   return (
     <>
@@ -25,7 +28,7 @@ export const RunningView: React.FC = () => {
 
       <StatusMessages message={statusMessage} />
 
-      <GameStatistics gameStats={gameStats} />
+      <GameStatistics gameStats={gameStats} remainingGuesses={remainingGuesses.toString()} />
     </>
   );
 };
