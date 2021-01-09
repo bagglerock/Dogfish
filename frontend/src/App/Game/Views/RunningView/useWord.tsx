@@ -1,16 +1,21 @@
-import { convertWordToHiddenArray } from 'app/Game/utilities/convertWordToHiddenArray';
-import { indexOf } from 'lodash';
+import { indexOf, map } from 'lodash';
 import { useEffect, useState } from 'react';
 
+const MAX_GUESSES = 10;
+
 export const useWord = (word: string) => {
+  const initialMaskedWord = convertWordToHiddenArray(word, []);
+  const [maskedWord, setMaskedWord] = useState<string[]>(initialMaskedWord);
+
   const [lettersGuessed, setLettersGuessed] = useState<string[]>([]);
-  const [maskedWord, setMaskedWord] = useState<string[]>(convertWordToHiddenArray(word, lettersGuessed));
+
+  const [remainingGuesses, setRemainingGuesses] = useState(MAX_GUESSES);
 
   useEffect(() => {
-    const updateWordOnKeyPress = (event: KeyboardEvent) => {
+    const updateOnKeyPress = (event: KeyboardEvent) => {
       const keyPressed = event.key.toUpperCase();
       if (keyPressed.length > 1) {
-        // prevents 'Enter Key' from going into lettersGuessed array
+        // prevents things like 'Enter Key' from going into lettersGuessed array
         return;
       }
 
@@ -21,10 +26,10 @@ export const useWord = (word: string) => {
       updateWord(keyPressed);
     };
 
-    window.addEventListener('keypress', updateWordOnKeyPress);
+    window.addEventListener('keypress', updateOnKeyPress);
 
     return () => {
-      window.addEventListener('keypress', updateWordOnKeyPress);
+      window.addEventListener('keypress', updateOnKeyPress);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -36,6 +41,12 @@ export const useWord = (word: string) => {
 
     setLettersGuessed(_lettersGuessed);
 
+    if (indexOf(word, key) === -1) {
+      setRemainingGuesses(remainingGuesses => remainingGuesses - 1);
+
+      return;
+    }
+
     setMaskedWord(convertWordToHiddenArray(word, lettersGuessed));
   };
 
@@ -46,5 +57,24 @@ export const useWord = (word: string) => {
   return {
     maskedWord,
     lettersGuessed,
+    remainingGuesses,
   };
 };
+
+function convertWordToHiddenArray(word: string, lettersGuessed: string[]) {
+  const maskedWord = map(word, letter => {
+    if (indexOf(lettersGuessed, letter) !== -1) {
+      return letter;
+    }
+
+    const characterCode = letter.charCodeAt(0);
+
+    if (characterCode >= 65 && characterCode <= 90) {
+      return '-';
+    }
+
+    return letter;
+  });
+
+  return maskedWord;
+}
