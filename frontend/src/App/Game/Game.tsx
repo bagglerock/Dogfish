@@ -1,4 +1,5 @@
-import { GAME_STATE, useGameState } from 'app/Game/useGameState';
+import { GAME_STATE } from 'app/Game/share/const';
+import { useGameState } from 'app/Game/useGameState';
 import { RunningView } from 'app/Game/Views/RunningView/RunningView';
 import React from 'react';
 import './game.scss';

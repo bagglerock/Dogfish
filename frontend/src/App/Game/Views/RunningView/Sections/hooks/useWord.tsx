@@ -1,8 +1,7 @@
+import { HIDDEN_CHARACTER } from 'app/Game/share/const';
 import { useGuesses } from 'app/Game/Views/RunningView/Sections/hooks/useGuesses';
 import { indexOf, map } from 'lodash';
 import { useEffect, useState } from 'react';
-
-const HIDDEN_CHARACTER = '-';
 
 export const useWord = (word: string) => {
   const initialMaskedWord = convertWordToHiddenArray(word, []);
