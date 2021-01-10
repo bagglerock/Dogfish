@@ -1,7 +1,8 @@
+import { useGuesses } from 'app/Game/Views/RunningView/Sections/hooks/useGuesses';
 import { indexOf, map } from 'lodash';
 import { useEffect, useState } from 'react';
 
-const MAX_GUESSES = 10;
+const HIDDEN_CHARACTER = '-';
 
 export const useWord = (word: string) => {
   const initialMaskedWord = convertWordToHiddenArray(word, []);
@@ -9,7 +10,7 @@ export const useWord = (word: string) => {
 
   const [lettersGuessed, setLettersGuessed] = useState<string[]>([]);
 
-  const [remainingGuesses, setRemainingGuesses] = useState(MAX_GUESSES);
+  const { remainingGuesses, setRemainingGuesses } = useGuesses();
 
   useEffect(() => {
     const updateOnKeyPress = (event: KeyboardEvent) => {
@@ -70,7 +71,7 @@ function convertWordToHiddenArray(word: string, lettersGuessed: string[]) {
     const characterCode = letter.charCodeAt(0);
 
     if (characterCode >= 65 && characterCode <= 90) {
-      return '-';
+      return HIDDEN_CHARACTER;
     }
 
     return letter;

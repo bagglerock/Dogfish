@@ -3,12 +3,20 @@ import { GameStatistics } from 'app/Game/Views/RunningView/Sections/GameStatisti
 import { LettersGuessed } from 'app/Game/Views/RunningView/Sections/LettersGuessed/LettersGuessed';
 import { StatusMessages } from 'app/Game/Views/RunningView/Sections/StatusMessages/StatusMessages';
 import { WordDisplay } from 'app/Game/Views/RunningView/Sections/WordDisplay/WordDisplay';
-import { useWord } from 'app/Game/Views/RunningView/useWord';
-import React from 'react';
+import { useWord } from 'app/Game/Views/RunningView/Sections/hooks/useWord';
+import React, { useEffect } from 'react';
+import { GAME_STATE } from 'app/Game/useGameState';
 
-export const RunningView: React.FC = () => {
+export const RunningView: React.FC<RunningViewProps> = ({ changeGameState }) => {
   const word = 'HELLO WORLD';
   const { maskedWord, lettersGuessed, remainingGuesses } = useWord(word);
+
+  useEffect(() => {
+    if (remainingGuesses === 0) {
+      changeGameState(GAME_STATE.OFF);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [remainingGuesses]);
 
   const statusMessage = 'This is a test message';
   const gameStats = new GameStats({
@@ -28,3 +36,7 @@ export const RunningView: React.FC = () => {
     </>
   );
 };
+
+interface RunningViewProps {
+  changeGameState: React.Dispatch<React.SetStateAction<number>>;
+}

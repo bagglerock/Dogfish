@@ -3,7 +3,7 @@ import React from 'react';
 import './app.scss';
 
 export const App: React.FC = () => (
-  <div className="app">
+  <div>
     <Layout />
   </div>
 );

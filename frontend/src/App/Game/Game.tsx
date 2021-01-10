@@ -1,12 +1,26 @@
+import { GAME_STATE, useGameState } from 'app/Game/useGameState';
 import { RunningView } from 'app/Game/Views/RunningView/RunningView';
-import React, { useState } from 'react';
+import React from 'react';
+import './game.scss';
 
 export const Game: React.FC = () => {
-  const [gameState] = useState(1);
+  const { gameState, setGameState } = useGameState();
+
+  const handleGame = () => {
+    setGameState(GAME_STATE.RUNNING);
+  };
 
   if (gameState === 1) {
-    return <RunningView />;
+    return <RunningView changeGameState={setGameState} />;
   }
 
-  return null;
+  return (
+    <>
+      <div className="pt-5 text-center w-100">
+        <button className="btn" onClick={handleGame}>
+          start game
+        </button>
+      </div>
+    </>
+  );
 };

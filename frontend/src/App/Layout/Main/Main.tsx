@@ -3,7 +3,7 @@ import React from 'react';
 
 export const Main: React.FC = () => {
   return (
-    <main className="main p-3">
+    <main className="main p-3 w-100">
       <Game />
     </main>
   );
