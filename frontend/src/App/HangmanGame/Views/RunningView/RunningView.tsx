@@ -6,14 +6,18 @@ import { GameStatistics } from 'app/HangmanGame/Views/RunningView/Sections/GameS
 import { LettersGuessed } from 'app/HangmanGame/Views/RunningView/Sections/LettersGuessed/LettersGuessed';
 import { StatusMessages } from 'app/HangmanGame/Views/RunningView/Sections/StatusMessages/StatusMessages';
 import { WordDisplay } from 'app/HangmanGame/Views/RunningView/Sections/WordDisplay/WordDisplay';
-import { indexOf, upperCase } from 'lodash';
+import { indexOf } from 'lodash';
 import React, { useEffect } from 'react';
 
-export const RunningView: React.FC<IGameState & RunningViewProps> = ({ setGameState, word }) => {
-  const { maskedWord, lettersGuessed, remainingGuesses } = useWord(upperCase(word));
+export const RunningView: React.FC<IGameState & RunningViewProps> = ({ setGameState, word, stats, setStats }) => {
+  const { maskedWord, lettersGuessed, remainingGuesses } = useWord(word);
 
   useEffect(() => {
     if (indexOf(maskedWord, HIDDEN_CHARACTER) === -1) {
+      setStats(stats => {
+        return new GameStats({ ...stats, wins: stats.wins + 1 });
+      });
+
       setGameState(GAME_STATE.WIN);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -21,16 +25,16 @@ export const RunningView: React.FC<IGameState & RunningViewProps> = ({ setGameSt
 
   useEffect(() => {
     if (remainingGuesses === 0) {
+      setStats(stats => {
+        return new GameStats({ ...stats, losses: stats.losses + 1 });
+      });
+
       setGameState(GAME_STATE.LOSE);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [remainingGuesses]);
 
   const statusMessage = 'This is a test message';
-  const gameStats = new GameStats({
-    wins: '10',
-    losses: '2',
-  });
 
   return (
     <>
@@ -40,11 +44,13 @@ export const RunningView: React.FC<IGameState & RunningViewProps> = ({ setGameSt
 
       <StatusMessages message={statusMessage} />
 
-      <GameStatistics gameStats={gameStats} remainingGuesses={remainingGuesses.toString()} />
+      <GameStatistics gameStats={stats} remainingGuesses={remainingGuesses.toString()} />
     </>
   );
 };
 
 interface RunningViewProps {
   word: string;
+  stats: GameStats;
+  setStats: React.Dispatch<React.SetStateAction<GameStats>>;
 }

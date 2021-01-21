@@ -1,4 +1,5 @@
 import { IGameState } from 'app/HangmanGame/HangmanGameContainer';
+import { GameStats } from 'app/HangmanGame/models/GameStats';
 import { GAME_STATE } from 'app/HangmanGame/share/const';
 import { LoseView } from 'app/HangmanGame/Views/LoseView/LoseView';
 import { OffView } from 'app/HangmanGame/Views/OffView/OffView';
@@ -35,4 +36,6 @@ interface HangmanViewSwitchProps {
   gameState: GAME_STATE;
   word: string;
   changeWord: () => void;
+  stats: GameStats;
+  setStats: React.Dispatch<React.SetStateAction<GameStats>>;
 }
