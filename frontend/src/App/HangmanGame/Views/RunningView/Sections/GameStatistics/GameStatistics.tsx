@@ -1,4 +1,4 @@
-import { GameStats } from 'app/Game/models/GameStats';
+import { GameStats } from 'app/HangmanGame/models/GameStats';
 import { Card } from 'app/share/Card';
 import React from 'react';
 

@@ -1,4 +1,4 @@
-import { formatHiddenWord } from 'app/Game/utilities/formatHiddenWord';
+import { formatHiddenWord } from 'app/HangmanGame/utilities/formatHiddenWord';
 import { Card } from 'app/share/Card';
 import React from 'react';
 
