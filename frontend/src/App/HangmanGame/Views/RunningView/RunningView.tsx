@@ -5,8 +5,8 @@ import { GameStatistics } from 'app/HangmanGame/Views/RunningView/Sections/GameS
 import { LettersGuessed } from 'app/HangmanGame/Views/RunningView/Sections/LettersGuessed/LettersGuessed';
 import { StatusMessages } from 'app/HangmanGame/Views/RunningView/Sections/StatusMessages/StatusMessages';
 import { WordDisplay } from 'app/HangmanGame/Views/RunningView/Sections/WordDisplay/WordDisplay';
+import { useUpdateStats } from 'app/HangmanGame/Views/RunningView/useUpdateStats';
 import React from 'react';
-import { useUpdateStats } from './useUpdateStats';
 
 export const RunningView: React.FC<IGameState & RunningViewProps> = ({ setGameState, word, stats, setStats }) => {
   const { maskedWord, lettersGuessed, remainingGuesses } = useWord(word);

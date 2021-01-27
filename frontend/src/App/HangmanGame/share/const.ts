@@ -3,7 +3,6 @@ export enum GAME_STATE {
   RUNNING = 1,
   WIN = 2,
   LOSE = 3,
-  RESET = 4,
 }
 
 export const HIDDEN_CHARACTER = '-';
