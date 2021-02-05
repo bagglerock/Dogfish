@@ -1,5 +1,5 @@
-import { useGuesses } from 'app/HangmanGame/hooks/useGuesses';
-import { HIDDEN_CHARACTER } from 'app/HangmanGame/share/const';
+import { useGuesses } from 'app/Game/hooks/useGuesses';
+import { HIDDEN_CHARACTER } from 'app/Game/share/const';
 import { indexOf, map } from 'lodash';
 import { useEffect, useState } from 'react';
 

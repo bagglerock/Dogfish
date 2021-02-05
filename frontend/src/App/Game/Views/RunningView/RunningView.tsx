@@ -1,11 +1,11 @@
-import { IGameState } from 'app/HangmanGame/HangmanGameContainer';
-import { useWord } from 'app/HangmanGame/hooks/useWord';
-import { GameStats } from 'app/HangmanGame/models/GameStats';
-import { GameStatistics } from 'app/HangmanGame/Views/RunningView/Sections/GameStatistics/GameStatistics';
-import { LettersGuessed } from 'app/HangmanGame/Views/RunningView/Sections/LettersGuessed/LettersGuessed';
-import { StatusMessages } from 'app/HangmanGame/Views/RunningView/Sections/StatusMessages/StatusMessages';
-import { WordDisplay } from 'app/HangmanGame/Views/RunningView/Sections/WordDisplay/WordDisplay';
-import { useUpdateStats } from 'app/HangmanGame/Views/RunningView/useUpdateStats';
+import { IGameState } from 'app/Game/Game';
+import { useWord } from 'app/Game/hooks/useWord';
+import { GameStats } from 'app/Game/models/GameStats';
+import { GameStatistics } from 'app/Game/Views/RunningView/Sections/GameStatistics/GameStatistics';
+import { LettersGuessed } from 'app/Game/Views/RunningView/Sections/LettersGuessed/LettersGuessed';
+import { StatusMessages } from 'app/Game/Views/RunningView/Sections/StatusMessages/StatusMessages';
+import { WordDisplay } from 'app/Game/Views/RunningView/Sections/WordDisplay/WordDisplay';
+import { useUpdateStats } from 'app/Game/Views/RunningView/useUpdateStats';
 import React from 'react';
 
 export const RunningView: React.FC<IGameState & RunningViewProps> = ({ setGameState, word, stats, setStats }) => {

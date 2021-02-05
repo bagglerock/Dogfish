@@ -1,5 +1,5 @@
-import { IGameState } from 'app/HangmanGame/HangmanGameContainer';
-import { GAME_STATE } from 'app/HangmanGame/share/const';
+import { IGameState } from 'app/Game/Game';
+import { GAME_STATE } from 'app/Game/share/const';
 import { Card } from 'app/share/Card';
 import React from 'react';
 

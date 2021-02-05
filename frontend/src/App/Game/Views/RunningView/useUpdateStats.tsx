@@ -1,5 +1,5 @@
-import { GameStats } from 'app/HangmanGame/models/GameStats';
-import { GAME_STATE, HIDDEN_CHARACTER } from 'app/HangmanGame/share/const';
+import { GameStats } from 'app/Game/models/GameStats';
+import { GAME_STATE, HIDDEN_CHARACTER } from 'app/Game/share/const';
 import { indexOf } from 'lodash';
 import React, { useEffect } from 'react';
 
