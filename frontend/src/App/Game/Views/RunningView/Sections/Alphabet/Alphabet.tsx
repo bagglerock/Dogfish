@@ -10,7 +10,7 @@ export const Alphabet: React.FC<AlphabetProps> = ({ updateWord }) => {
       {map(split(alphabet, ''), letter => {
         return (
           <Card key={letter} onClick={() => updateWord(letter)}>
-            <p className="p-style-1">{letter}</p>
+            <p className="p-style-1">{letter.toUpperCase()}</p>
           </Card>
         );
       })}
