@@ -1,0 +1,244 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Alphabet 1`] = `
+<div>
+  <div
+    class="d-flex flex-wrap game-card m-2"
+  >
+    <div
+      class="game-card m-2"
+    >
+      <p
+        class="p-style-1"
+      >
+        A
+      </p>
+    </div>
+    <div
+      class="game-card m-2"
+    >
+      <p
+        class="p-style-1"
+      >
+        B
+      </p>
+    </div>
+    <div
+      class="game-card m-2"
+    >
+      <p
+        class="p-style-1"
+      >
+        C
+      </p>
+    </div>
+    <div
+      class="game-card m-2"
+    >
+      <p
+        class="p-style-1"
+      >
+        D
+      </p>
+    </div>
+    <div
+      class="game-card m-2"
+    >
+      <p
+        class="p-style-1"
+      >
+        E
+      </p>
+    </div>
+    <div
+      class="game-card m-2"
+    >
+      <p
+        class="p-style-1"
+      >
+        F
+      </p>
+    </div>
+    <div
+      class="game-card m-2"
+    >
+      <p
+        class="p-style-1"
+      >
+        G
+      </p>
+    </div>
+    <div
+      class="game-card m-2"
+    >
+      <p
+        class="p-style-1"
+      >
+        H
+      </p>
+    </div>
+    <div
+      class="game-card m-2"
+    >
+      <p
+        class="p-style-1"
+      >
+        I
+      </p>
+    </div>
+    <div
+      class="game-card m-2"
+    >
+      <p
+        class="p-style-1"
+      >
+        J
+      </p>
+    </div>
+    <div
+      class="game-card m-2"
+    >
+      <p
+        class="p-style-1"
+      >
+        K
+      </p>
+    </div>
+    <div
+      class="game-card m-2"
+    >
+      <p
+        class="p-style-1"
+      >
+        L
+      </p>
+    </div>
+    <div
+      class="game-card m-2"
+    >
+      <p
+        class="p-style-1"
+      >
+        M
+      </p>
+    </div>
+    <div
+      class="game-card m-2"
+    >
+      <p
+        class="p-style-1"
+      >
+        N
+      </p>
+    </div>
+    <div
+      class="game-card m-2"
+    >
+      <p
+        class="p-style-1"
+      >
+        O
+      </p>
+    </div>
+    <div
+      class="game-card m-2"
+    >
+      <p
+        class="p-style-1"
+      >
+        P
+      </p>
+    </div>
+    <div
+      class="game-card m-2"
+    >
+      <p
+        class="p-style-1"
+      >
+        Q
+      </p>
+    </div>
+    <div
+      class="game-card m-2"
+    >
+      <p
+        class="p-style-1"
+      >
+        R
+      </p>
+    </div>
+    <div
+      class="game-card m-2"
+    >
+      <p
+        class="p-style-1"
+      >
+        S
+      </p>
+    </div>
+    <div
+      class="game-card m-2"
+    >
+      <p
+        class="p-style-1"
+      >
+        T
+      </p>
+    </div>
+    <div
+      class="game-card m-2"
+    >
+      <p
+        class="p-style-1"
+      >
+        U
+      </p>
+    </div>
+    <div
+      class="game-card m-2"
+    >
+      <p
+        class="p-style-1"
+      >
+        V
+      </p>
+    </div>
+    <div
+      class="game-card m-2"
+    >
+      <p
+        class="p-style-1"
+      >
+        W
+      </p>
+    </div>
+    <div
+      class="game-card m-2"
+    >
+      <p
+        class="p-style-1"
+      >
+        X
+      </p>
+    </div>
+    <div
+      class="game-card m-2"
+    >
+      <p
+        class="p-style-1"
+      >
+        Y
+      </p>
+    </div>
+    <div
+      class="game-card m-2"
+    >
+      <p
+        class="p-style-1"
+      >
+        Z
+      </p>
+    </div>
+  </div>
+</div>
+`;
