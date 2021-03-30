@@ -1,6 +1,7 @@
 import { IGameState } from 'app/Game/Game';
 import { useWord } from 'app/Game/hooks/useWord';
 import { GameStats } from 'app/Game/models/GameStats';
+import { Alphabet } from 'app/Game/Views/RunningView/Sections/Alphabet/Alphabet';
 import { LettersGuessed } from 'app/Game/Views/RunningView/Sections/LettersGuessed/LettersGuessed';
 import { StatusMessages } from 'app/Game/Views/RunningView/Sections/StatusMessages/StatusMessages';
 import { WordDisplay } from 'app/Game/Views/RunningView/Sections/WordDisplay/WordDisplay';
@@ -26,6 +27,8 @@ export const RunningView: React.FC<IGameState & RunningViewProps> = ({ setGameSt
       <Card>
         <p className="p-style-1">Remaining Guesses: {remainingGuesses.toString()}</p>
       </Card>
+
+      <Alphabet />
     </>
   );
 };
