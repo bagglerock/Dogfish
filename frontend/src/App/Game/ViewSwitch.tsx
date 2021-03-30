@@ -33,7 +33,7 @@ export const ViewSwitch: React.FC<ViewSwitchProps & IGameState> = props => {
   return (
     <>
       <GameStatsCard stats={props.stats} />
-      <StatusMessages message="" />
+      <StatusMessages message="This is a test message..." />
       <View {...props} />
     </>
   );
