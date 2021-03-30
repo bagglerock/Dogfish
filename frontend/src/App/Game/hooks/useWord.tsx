@@ -34,6 +34,14 @@ export const useWord = (word: string) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const updateOnButtonClick = (letter: string) => {
+    if (isDuplicateLetter(letter.toUpperCase())) {
+      return;
+    }
+
+    updateWord(letter.toUpperCase());
+  };
+
   const updateWord = (key: string) => {
     const _lettersGuessed = lettersGuessed;
 
@@ -58,6 +66,7 @@ export const useWord = (word: string) => {
     maskedWord,
     lettersGuessed,
     remainingGuesses,
+    updateOnButtonClick,
   };
 };
 

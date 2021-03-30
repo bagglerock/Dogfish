@@ -10,7 +10,7 @@ import { Card } from 'app/share/Card';
 import React from 'react';
 
 export const RunningView: React.FC<IGameState & RunningViewProps> = ({ setGameState, word, stats, setStats }) => {
-  const { maskedWord, lettersGuessed, remainingGuesses } = useWord(word);
+  const { maskedWord, lettersGuessed, remainingGuesses, updateOnButtonClick } = useWord(word);
 
   useUpdateStats(setGameState, setStats, maskedWord, remainingGuesses);
 
@@ -28,7 +28,7 @@ export const RunningView: React.FC<IGameState & RunningViewProps> = ({ setGameSt
         <p className="p-style-1">Remaining Guesses: {remainingGuesses.toString()}</p>
       </Card>
 
-      <Alphabet />
+      <Alphabet updateWord={updateOnButtonClick} />
     </>
   );
 };
