@@ -1,11 +1,12 @@
 import { IGameState } from 'app/Game/Game';
 import { GameStats } from 'app/Game/models/GameStats';
 import { GAME_STATE } from 'app/Game/share/const';
+import { GameStatsCard } from 'app/Game/Views/Cards/GameStatsCard';
+import { StatusMessages } from 'app/Game/Views/Cards/StatusMessages';
 import { LoseView } from 'app/Game/Views/LoseView/LoseView';
 import { OffView } from 'app/Game/Views/OffView/OffView';
 import { RunningView } from 'app/Game/Views/RunningView/RunningView';
 import { WinView } from 'app/Game/Views/WinView/WinView';
-import { Card } from 'app/share/Card';
 import React from 'react';
 
 export const ViewSwitch: React.FC<ViewSwitchProps & IGameState> = props => {
@@ -31,12 +32,9 @@ export const ViewSwitch: React.FC<ViewSwitchProps & IGameState> = props => {
 
   return (
     <>
-      <Card>
-        <p className="p-style-1">Wins: {props.stats.wins}</p>
-        <p className="p-style-1">Losses: {props.stats.losses}</p>
-      </Card>
+      <GameStatsCard stats={props.stats} />
+      <StatusMessages message="" />
       <View {...props} />
-      );
     </>
   );
 };
