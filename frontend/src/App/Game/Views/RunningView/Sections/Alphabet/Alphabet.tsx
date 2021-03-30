@@ -3,7 +3,7 @@ import { map, split } from 'lodash';
 import React from 'react';
 
 export const Alphabet: React.FC<AlphabetProps> = ({ updateWord }) => {
-  const alphabet = 'abcdefghijklmonpqrstuvwxyz';
+  const alphabet = 'abcdefghijklmnopqrstuvwxyz';
 
   return (
     <div className="d-flex flex-wrap game-card m-2">
