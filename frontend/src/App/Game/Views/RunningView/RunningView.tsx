@@ -23,7 +23,7 @@ export const RunningView: React.FC<IGameState & RunningViewProps> = ({ setGameSt
         <p className="p-style-1">Remaining Guesses: {remainingGuesses.toString()}</p>
       </Card>
 
-      <VirtualKeyboard updateWord={updateWord} />
+      <VirtualKeyboard updateWord={updateWord} excludeKeys={lettersGuessed} />
     </>
   );
 };

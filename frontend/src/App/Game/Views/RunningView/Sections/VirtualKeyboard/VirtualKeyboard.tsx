@@ -1,11 +1,16 @@
-import { map, split } from 'lodash';
-import React from 'react';
+import { difference, map, split } from 'lodash';
+import React, { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
 
-const ALPHABET = 'abcdefghijklmnopqrstuvwxyz';
+const ALPHABET = split('ABCDEFGHIJKLMNOPQRSTUVWXYZ', '');
 
-export const VirtualKeyboard: React.FC<KeyboardProps> = ({ updateWord }) => {
-  const alphabetArray = split(ALPHABET, '');
+export const VirtualKeyboard: React.FC<KeyboardProps> = ({ updateWord, excludeKeys }) => {
+  const [alphabet, setAlphabet] = useState<string[]>(ALPHABET);
+
+  useEffect(() => {
+    setAlphabet(difference(alphabet, excludeKeys));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [excludeKeys.length]);
 
   const handleOnClick: React.MouseEventHandler<HTMLButtonElement> = e => {
     const letter = (e.target as HTMLButtonElement).value;
@@ -15,7 +20,7 @@ export const VirtualKeyboard: React.FC<KeyboardProps> = ({ updateWord }) => {
 
   return (
     <div className="d-flex flex-wrap game-card m-2">
-      {map(alphabetArray, letter => {
+      {map(alphabet, letter => {
         return (
           <Button key={letter} className="p-style-1" onClick={handleOnClick} value={letter.toUpperCase()}>
             {letter.toUpperCase()}
@@ -28,4 +33,5 @@ export const VirtualKeyboard: React.FC<KeyboardProps> = ({ updateWord }) => {
 
 interface KeyboardProps {
   updateWord(letter: string): void;
+  excludeKeys: string[];
 }
