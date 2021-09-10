@@ -1,11 +1,12 @@
 import { difference, map, split } from 'lodash';
 import React, { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
+import './VirtualKeyboard.scss';
 
-const ALPHABET = split('ABCDEFGHIJKLMNOPQRSTUVWXYZ', '');
+const ALPHABET_ARRAY = split('ABCDEFGHIJKLMNOPQRSTUVWXYZ', '');
 
 export const VirtualKeyboard: React.FC<KeyboardProps> = ({ updateWord, excludeKeys }) => {
-  const [alphabet, setAlphabet] = useState<string[]>(ALPHABET);
+  const [alphabet, setAlphabet] = useState<string[]>(ALPHABET_ARRAY);
 
   useEffect(() => {
     setAlphabet(difference(alphabet, excludeKeys));
@@ -22,7 +23,12 @@ export const VirtualKeyboard: React.FC<KeyboardProps> = ({ updateWord, excludeKe
     <div className="d-flex flex-wrap game-card m-2">
       {map(alphabet, letter => {
         return (
-          <Button key={letter} className="p-style-1" onClick={handleOnClick} value={letter.toUpperCase()}>
+          <Button
+            key={letter}
+            className="p-style-1 mx-2 my-1 px-3 virtual-keyboard__button"
+            onClick={handleOnClick}
+            value={letter.toUpperCase()}
+          >
             {letter.toUpperCase()}
           </Button>
         );
