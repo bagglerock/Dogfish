@@ -34,22 +34,20 @@ export const useWord = (word: string) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const updateOnButtonClick = (letter: string) => {
-    if (isDuplicateLetter(letter.toUpperCase())) {
+  const updateWord = (letter: string) => {
+    const formattedLetter = letter.toUpperCase();
+
+    if (isDuplicateLetter(formattedLetter)) {
       return;
     }
 
-    updateWord(letter.toUpperCase());
-  };
-
-  const updateWord = (key: string) => {
     const _lettersGuessed = lettersGuessed;
 
-    _lettersGuessed.push(key);
+    _lettersGuessed.push(formattedLetter);
 
     setLettersGuessed(_lettersGuessed);
 
-    if (indexOf(word, key) === -1) {
+    if (indexOf(word, formattedLetter) === -1) {
       setRemainingGuesses(remainingGuesses => remainingGuesses - 1);
 
       return;
@@ -66,7 +64,7 @@ export const useWord = (word: string) => {
     maskedWord,
     lettersGuessed,
     remainingGuesses,
-    updateOnButtonClick,
+    updateWord,
   };
 };
 
